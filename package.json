@@ -4,12 +4,16 @@
   "description": "Vinyl collection interface",
   "main": "index.js",
   "type": "module",
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && tsc-alias",
     "start": "NODE_ENV=production node dist/main.js",
     "dev": "NODE_ENV=development ts-node src/main.ts",
-    "generate:swagger": "NODE_ENV=production ts-node scripts/generate-swagger-spec.ts"
+    "build:swagger": "npm run build && node dist/util/generate-swagger-spec.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +25,7 @@
     "@types/string-similarity": "^4.0.2",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
+    "@types/yaml": "^1.9.6",
     "copyfiles": "^2.4.1",
     "nodemon": "^3.1.9",
     "prisma": "^6.5.0",
@@ -30,7 +35,8 @@
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.13",
     "typescript": "^5.8.2",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "yaml": "^2.7.1"
   },
   "dependencies": {
     "@prisma/client": "^6.5.0",

@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: For the Record API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+components:
+  schemas:
+    Release:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+          example: Abbey Road
+        year:
+          type: integer
+          example: 1969
+        format:
+          $ref: "#/components/schemas/Format"
+        artists:
+          type: array
+          items:
+            $ref: "#/components/schemas/Artist"
+        cover_art:
+          $ref: "#/components/schemas/CoverArt"
+    Artist:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          example: The Beatles
+    Format:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          example: LP
+    CoverArt:
+      type: object
+      properties:
+        id:
+          type: integer
+        file_path:
+          type: string
+          example: /images/default-cover.png
+        is_default:
+          type: boolean
+paths: {}
+tags: []
