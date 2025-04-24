@@ -1,0 +1,42 @@
+model Format {
+  id Int @id @default(autoincrement())
+  name String @unique
+  releases Release[]
+}
+
+model Artist {
+  id Int @id @default(autoincrement())
+  name String @unique
+  releases ReleaseArtist[]
+}
+
+model Release {
+  id Int @id @default(autoincrement())
+  title String
+  year Int?
+  format Format @relation(fields: [format_id], references: [id])
+  format_id Int
+  musicbrainz_id String?
+  cover_art CoverArt @relation(fields: [cover_art_id], references: [id])
+  cover_art_id Int @unique
+  artists ReleaseArtist[]
+}
+
+model ReleaseArtist {
+  id Int @id @default(autoincrement())
+  release Release @relation(fields: [release_id], references: [id])
+  release_id Int
+  artist Artist @relation(fields: [artist_id], references: [id])
+  artist_id Int
+
+  @@unique([release_id, artist_id])
+}
+
+model CoverArt {
+  id Int @id @default(autoincrement())
+  file_path String
+  width Int?
+  height Int?
+  is_default Boolean @default(false)
+  release Release?
+}
