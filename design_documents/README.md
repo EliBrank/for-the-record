@@ -8,14 +8,15 @@ Given the data available in the releases table, a single GET endpoint here shoul
 
 ## Tools
 Back-end: Node.js, Express.js
-Database: PostgreSQL
+Database: SQLite
 ORM: Prisma
+Logging: Winston
 Testing: Jest
 Documentation: Swagger, via swagger-jsdoc and swagger-ui-express
 
 ## Timeline
 Back-end Setup: 1 day (Express, Prisma, database connection)
 API Implementation: 2 days (search/filter logic, error handling)
-Testing: 0.5 days
-Documentation: 0.5 days
+Testing: 0.5 days (Jest)
+Documentation: 0.5 days (SwaggerDocs)
 Additional Troubleshooting: 2 days
