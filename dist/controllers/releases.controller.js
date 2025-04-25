@@ -6,7 +6,7 @@ const getReleases = async (req, res) => {
     try {
         // variables defined using object destructuring with default values
         // i.e. sort is set to 'title' if no sort oition in req object
-        const { sort = 'title', order = 'asc', format, page = '1', limit = '20' } = req.query;
+        const { sort = 'title', order = 'asc', format, page = '1', limit = '10' } = req.query;
         const pageNum = parseInt(page);
         const limitNum = parseInt(limit);
         let orderBy = {};
@@ -29,17 +29,25 @@ const getReleases = async (req, res) => {
         const where = {};
         if (format) {
             if (Array.isArray(format)) {
-                where.format_id = {
-                    in: format.map(f => parseInt(f))
+                where.format = {
+                    name: {
+                        in: format.map(f => f.toString())
+                    }
                 };
             }
             else if (typeof format === 'string' && format.includes(',')) {
-                where.format_id = {
-                    in: format.split(',').map(f => parseInt(f))
+                where.format = {
+                    name: {
+                        in: format.split(',').map(f => f.trim())
+                    }
                 };
             }
             else {
-                where.format_id = parseInt(format);
+                where.format = {
+                    name: {
+                        equals: format.toString()
+                    }
+                };
             }
         }
         const releases = await prisma.release.findMany({

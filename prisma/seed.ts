@@ -17,7 +17,7 @@ async function main() {
   // Create Cover Art
   const coverArts = await prisma.coverArt.createMany({
     data: [
-      { file_path: '/assets/images/default.jpg', width: 500, height: 500, is_default: true },
+      { file_path: '/assets/images/default.png', width: 500, height: 500, is_default: true },
       { file_path: '/assets/images/St_Vincent--Strange_Mercy.jpg', width: 500, height: 500 },
       { file_path: '/assets/images/Bjork--Vespertine.jpg', width: 500, height: 500 },
       { file_path: '/assets/images/Daft_Punk--Discovery.jpg', width: 500, height: 500 },

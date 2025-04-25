@@ -36,15 +36,23 @@ const getReleases = async (req: Request, res: Response) => {
 
     if (format) {
       if (Array.isArray(format)) {
-        where.format_id = {
-          in: format.map(f => parseInt(f as string))
+        where.format = {
+          name: {
+            in: format.map(f => f.toString())
+          }
         };
       } else if (typeof format === 'string' && format.includes(',')) {
-        where.format_id = {
-          in: format.split(',').map(f => parseInt(f))
+        where.format = {
+          name: {
+            in: format.split(',').map(f => f.trim())
+          }
         };
       } else {
-        where.format_id = parseInt(format as string);
+        where.format = {
+          name: {
+            equals: format.toString()
+          }
+        };
       }
     }
 

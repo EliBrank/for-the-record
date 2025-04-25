@@ -4,7 +4,6 @@ import { PrismaClient } from '@prisma/client';
 import { releasesRouter } from './routes/releases.routes.js';
 import logger from './config/logger.js';
 import { setupSwagger } from './config/swagger.js';
-logger.info('Starting: API process');
 const prisma = new PrismaClient();
 const app = express();
 const port = process.env.PORT || 5000;
@@ -23,5 +22,4 @@ process.on('SIGINT', async () => {
     logger.info('Server shut down');
     process.exit(0);
 });
-logger.info('Ending: API process');
 //# sourceMappingURL=main.js.map

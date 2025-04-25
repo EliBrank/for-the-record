@@ -7,3 +7,37 @@
 {"level":"info","message":"Retrieved 15 releases"}
 {"level":"info","message":"Ending: getReleases function"}
 {"level":"info","message":"Server shut down"}
+{"level":"info","message":"Starting: API process"}
+{"level":"info","message":"Ending: API process"}
+{"level":"info","message":"Server running on port 5000"}
+{"level":"info","message":"Server shut down"}
+{"level":"info","message":"Starting: API process"}
+{"level":"info","message":"Ending: API process"}
+{"level":"info","message":"Server running on port 5000"}
+{"level":"info","message":"Server shut down"}
+{"level":"info","message":"Server running on port 5000"}
+{"level":"info","message":"Starting: getReleases function"}
+{"level":"info","message":"Retrieved 10 releases"}
+{"level":"info","message":"Ending: getReleases function"}
+{"level":"info","message":"Server shut down"}
+{"level":"info","message":"Server running on port 5000"}
+{"level":"info","message":"Starting: getReleases function"}
+{"level":"info","message":"Retrieved 10 releases"}
+{"level":"info","message":"Ending: getReleases function"}
+{"level":"info","message":"Starting: getReleases function"}
+{"level":"error","message":"Error fetching releases: PrismaClientValidationError: \nInvalid `prisma.release.findMany()` invocation:\n\n{\n  include: {\n    artists: {\n      include: {\n        artist: true\n      }\n    },\n    format: true,\n    cover_art: true\n  },\n  where: {\n+   format_id: {\n+     equals: Int | IntFieldRefInput,\n+     in: Int[],\n+     notIn: Int[],\n+     lt: Int | IntFieldRefInput,\n+     lte: Int | IntFieldRefInput,\n+     gt: Int | IntFieldRefInput,\n+     gte: Int | IntFieldRefInput,\n+     not: Int | NestedIntFilter\n+   }\n  },\n  orderBy: {\n    title: \"asc\"\n  },\n  skip: 0,\n  take: 10\n}\n\nArgument `format_id` is missing."}
+{"level":"info","message":"Server shut down"}
+{"level":"info","message":"Server running on port 5000"}
+{"level":"info","message":"Starting: getReleases function"}
+{"level":"info","message":"Retrieved 8 releases"}
+{"level":"info","message":"Ending: getReleases function"}
+{"level":"info","message":"Starting: getReleases function"}
+{"level":"info","message":"Retrieved 10 releases"}
+{"level":"info","message":"Ending: getReleases function"}
+{"level":"info","message":"Starting: getReleases function"}
+{"level":"info","message":"Retrieved 10 releases"}
+{"level":"info","message":"Ending: getReleases function"}
+{"level":"info","message":"Starting: getReleases function"}
+{"level":"info","message":"Retrieved 8 releases"}
+{"level":"info","message":"Ending: getReleases function"}
+{"level":"info","message":"Server shut down"}
