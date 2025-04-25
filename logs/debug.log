@@ -1,2 +1,9 @@
 {"level":"info","message":"Starting: generate-swagger-spec script"}
 {"level":"info","message":"Ending: generate-swagger-spec script"}
+{"level":"info","message":"Starting: API process"}
+{"level":"info","message":"Ending: API process"}
+{"level":"info","message":"Server running on port 5000"}
+{"level":"info","message":"Starting: getReleases function"}
+{"level":"info","message":"Retrieved 15 releases"}
+{"level":"info","message":"Ending: getReleases function"}
+{"level":"info","message":"Server shut down"}

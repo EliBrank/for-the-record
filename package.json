@@ -2,18 +2,21 @@
   "name": "for-the-record",
   "version": "1.0.0",
   "description": "Vinyl collection interface",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
+  "prisma": {
+    "seed": "tsx ./prisma/seed.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && tsc-alias",
     "start": "NODE_ENV=production node dist/main.js",
-    "dev": "NODE_ENV=development ts-node src/main.ts",
-    "build:swagger": "npm run build && node dist/util/generate-swagger-spec.js"
+    "dev": "NODE_ENV=development tsx src/main.ts",
+    "build:swagger": "npm run build && node dist/util/generate-swagger-spec.js",
+    "db:reset": "prisma db reset --force --skip-generate",
+    "db:push": "prisma db push",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:refresh": "npm run db:reset && npm run db:seed"
   },
   "keywords": [],
   "author": "",
@@ -21,25 +24,25 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
-    "@types/node": "^22.14.0",
+    "@types/node": "^22.15.2",
     "@types/string-similarity": "^4.0.2",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
     "@types/yaml": "^1.9.6",
     "copyfiles": "^2.4.1",
     "nodemon": "^3.1.9",
-    "prisma": "^6.5.0",
+    "prisma": "^6.6.0",
     "string-similarity": "^4.0.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.13",
-    "typescript": "^5.8.2",
+    "typescript": "^5.8.3",
     "winston": "^3.17.0",
     "yaml": "^2.7.1"
   },
   "dependencies": {
-    "@prisma/client": "^6.5.0",
+    "@prisma/client": "^6.6.0",
     "cors": "^2.8.5",
     "csv-parse": "^5.6.0",
     "express": "^5.1.0"
